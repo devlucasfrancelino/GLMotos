@@ -4,11 +4,12 @@ import Image from "next/image";
 
 export default async function Home() {
 
-  const allMotorcycles = await fetchMotorcycles();
+  const allMotorcycles = await fetchMotorcycles({ brands: "80", model: "3841", year: "2015-1" });
 
-  const isDataEmpty = !Array.isArray(allMotorcycles) || allMotorcycles.length < 1 || !allMotorcycles
+  const isDataEmpty = !Array.isArray(allMotorcycles) || allMotorcycles.length < 0 || !allMotorcycles;
 
   console.log(allMotorcycles)
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -32,7 +33,7 @@ export default async function Home() {
           <section>
             <div className="home__motorcycles-wrapper">
               {allMotorcycles?.map((motorcycle) => (
-                <MotorcycleCard motorcycle={motorcycle} />
+                <MotorcycleCard key={motorcycle} motorcycle={motorcycle} />
               ))}
             </div>
           </section>

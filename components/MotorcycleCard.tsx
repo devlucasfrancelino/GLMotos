@@ -1,35 +1,70 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
+import { MotorcycleProps } from "@/types";
+import Image from "next/image";
+import CustomButton from "./CustomButton";
+import { useState } from "react";
+import MotorcycleDetails from "./MotorcycleDetails";
+import { formatName } from "@/utils";
 
-import { MotorcycleProps } from "@/types"
-import CustomButton from "./CustomButton"
 
 interface MotorcycleCardProps {
-  motorcycle : MotorcycleProps;
+  motorcycle: MotorcycleProps;
 }
 
-const MotorcycleCard = ({motorcycle} : MotorcycleCardProps) => {
-  const { make, model, year, type, displacement, engine, compression, bore_stroke, valves_per_cylinder, fuel_system, fuel_control, cooling, gearbox, transmission, frame, front_suspension, front_wheel_travel, rear_suspension, rear_wheel_travel, front_tire, rear_tire, front_brakes, rear_brakes, seat_height, wheelbase, fuel_capacity, starter } = motorcycle;
-  
-  const MotorcyclePrice = 10;
+const MotorcycleCard = ({ motorcycle }: MotorcycleCardProps) => {
+  const { vehicleType, price, brand, model, modelYear, fuel, codeFipe, referenceMonth, fuelAcronym } = motorcycle;
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="motorcycles-card group">
       <div className="motorcycle-card__content">
-        <h2 className="motorcycles-card__content-title">
-          {make} {model}
+        <h2 className=" capitalize motorcycles-card__content-title">
+          {formatName(brand)}
         </h2>
+        <h3 className="capitalize font-semibold">
+          {model}
+        </h3>
+      </div>
+      <p className="flex mt-6 text-[32px] font-extrabold">
+          {price}
+      </p>
+
+      <div className="relative w-full h-40 my-3 object-contain">
+        <Image src="/hero.png" alt="car-model" fill priority className="object-contain" />
+      </div>
+      
+      <div className="relative flex w-full mt-2 mi">
+        <div className="flex group-hover:invisible w-full justify-between text-gray">
+          <div className=" flex flex-col ms-10 justify-center  items-center gap-2">
+            <Image src="/motorcycle.svg" width={20} height={20} alt="little-motorcycle" />
+            <p className="text-[14px]">
+              {fuel}
+            </p>
+          </div>
+          <div className=" flex flex-col me-10 justify-center items-center gap-2">
+            <Image color="#000000" src="/tire.svg" width={20} height={20} alt="tire" />
+            <p className="text-[14px]">
+              {modelYear}
+            </p>
+          </div>
+        </div>
+
+        <div className="motorcycles-card__btn-container"> 
+          <CustomButton 
+            title="Veja Mais" 
+            containerStyles="w-full py-[16px] rounded-full bg-primary-red"
+            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="right-arrow.svg"
+            handleClick={() => setIsOpen(true)}
+            />
+        </div>
       </div>
 
-      <p>
-        <span>
-          Car Rent..
-        </span>
-      </p>
+      <MotorcycleDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} motorcycle={motorcycle}/>
     </div>
-  )
+  );
 }
 
-export default MotorcycleCard
+export default MotorcycleCard;

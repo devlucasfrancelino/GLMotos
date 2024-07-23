@@ -6,6 +6,9 @@ import CustomFilter from "./CustomFilter";
 import SearchBar from "./SearchBar";
 import SearchManufacturer from "./SearchManufacturer";
 import MotorcycleCard from "./MotorcycleCard";
+import MotorcycleDetails from "./MotorcycleDetails";
+import { formatName } from "@/utils";
+
 
 export {
     Hero,
@@ -15,5 +18,7 @@ export {
     CustomFilter,
     SearchBar,
     SearchManufacturer,
-    MotorcycleCard
+    MotorcycleCard, 
+    MotorcycleDetails,
+    formatName
 }
