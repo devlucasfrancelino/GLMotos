@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { MouseEventHandler } from "react";
 
 export interface CustomButtonProps {
@@ -32,4 +33,19 @@ export interface MotorcycleRequest {
     brands : string, 
     model : string, 
     year : string
+}
+
+export interface MotorcycleType extends Document {
+  model: string;
+  make: string;
+  year: string;
+  price: number;
+  color?: string;
+  KM?: number;
+  modelCode: string;
+  makeCode: string;
+  fipeYear: string;
+  photo1?: mongoose.Types.ObjectId;
+  photo2?: mongoose.Types.ObjectId;
+  photo3?: mongoose.Types.ObjectId;
 }

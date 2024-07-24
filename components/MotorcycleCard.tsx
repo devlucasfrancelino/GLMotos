@@ -5,7 +5,7 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 import { useState } from "react";
 import MotorcycleDetails from "./MotorcycleDetails";
-import { formatName } from "@/utils";
+// import { formatName } from "@/utils";
 
 
 interface MotorcycleCardProps {
@@ -21,7 +21,7 @@ const MotorcycleCard = ({ motorcycle }: MotorcycleCardProps) => {
     <div className="motorcycles-card group">
       <div className="motorcycle-card__content">
         <h2 className=" capitalize motorcycles-card__content-title">
-          {formatName(brand)}
+          {(brand)}
         </h2>
         <h3 className="capitalize font-semibold">
           {model}

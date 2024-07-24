@@ -8,7 +8,7 @@ import SearchManufacturer from "./SearchManufacturer";
 import MotorcycleCard from "./MotorcycleCard";
 import MotorcycleDetails from "./MotorcycleDetails";
 import { formatName } from "@/utils";
-
+import { translationMap } from "@/utils";
 
 export {
     Hero,
@@ -20,5 +20,6 @@ export {
     SearchManufacturer,
     MotorcycleCard, 
     MotorcycleDetails,
-    formatName
+    formatName,
+    translationMap,
 }

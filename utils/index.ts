@@ -1,6 +1,7 @@
-import { MotorcycleRequest } from "@/types";
+import { MotorcycleProps, MotorcycleRequest } from "@/types";
 
-export async function fetchMotorcycles({ brands, model, year }: MotorcycleRequest) {
+
+export async function fetchFipeMotorcycles({ brands, model, year }: MotorcycleRequest) {
   if (!brands) {
     brands = "80";
   }
@@ -28,3 +29,17 @@ export async function fetchMotorcycles({ brands, model, year }: MotorcycleReques
 export function formatName(name : string) {
   return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 }
+
+export const translationMap: { [key: string]: string } = {
+  vehicleType: "Tipo de Veículo",
+  price: "Preço",
+  brand: "Marca",
+  model: "Modelo",
+  modelYear: "Ano do Modelo",
+  fuel: "Combustível",
+  codeFipe: "Código FIPE",
+  referenceMonth: "Mês de Referência",
+  fuelAcronym: "Sigla do Combustível"
+};
+
+//uNGsRvMJOeFfzabh

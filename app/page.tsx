@@ -1,10 +1,10 @@
 import { Hero, CustomFilter, SearchBar, MotorcycleCard } from "@/components";
-import { fetchMotorcycles } from "@/utils";
+import { fetchFipeMotorcycles } from "@/utils";
 import Image from "next/image";
 
 export default async function Home() {
 
-  const allMotorcycles = await fetchMotorcycles({ brands: "80", model: "3841", year: "2015-1" });
+  const allMotorcycles = await fetchFipeMotorcycles({ brands: "80", model: "3841", year: "2015-1" });
 
   const isDataEmpty = !Array.isArray(allMotorcycles) || allMotorcycles.length < 0 || !allMotorcycles;
 
