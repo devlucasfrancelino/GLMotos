@@ -16,12 +16,13 @@ const NavBar = () => {
             className='object-contain'
           />
         </Link>
-
-        <CustomButton
-          title="Fazer Login"
-          btnType="button"
-          containerStyles='text-primary-red rounded-full bg-white min-w-[130]'
-        />
+        <Link href="/login">
+          <CustomButton
+            title="Fazer Login"
+            btnType="button"
+            containerStyles='text-primary-red rounded-full bg-white min-w-[130]'
+          />
+        </Link>
 
       </nav>
     </header>

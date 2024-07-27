@@ -1,10 +1,10 @@
-import { Hero, CustomFilter, SearchBar, MotorcycleCard } from "@/components";
+import { Hero, CustomFilter, SearchBar, MotorcycleCard, NavBar } from "@/components";
 import { fetchFipeMotorcycles } from "@/utils";
 import Image from "next/image";
 
 export default async function Home() {
 
-  const allMotorcycles = await fetchFipeMotorcycles({ brands: "80", model: "3841", year: "2015-1" });
+  const allMotorcycles = await fetchFipeMotorcycles({ brands: "80", model: "9776", year: "2022-1" });
 
   const isDataEmpty = !Array.isArray(allMotorcycles) || allMotorcycles.length < 0 || !allMotorcycles;
 
@@ -12,6 +12,7 @@ export default async function Home() {
 
   return (
     <main className="overflow-hidden">
+      <NavBar />
       <Hero />
 
       <div className="mt-12 padding-x padding-y max-width" id="discover">

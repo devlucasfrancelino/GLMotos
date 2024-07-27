@@ -1,20 +1,14 @@
 import mongoose from "mongoose";
 
-mongoose.set("strictQuery", true)
+const url = process.env.MONGODB_URI
 
-const url = "process.env.MONGODB_URI"
-
-const connect = async () => {
-  return await mongoose.connect(url)
+const connectMongoDB = async () => {
+  try {
+    await mongoose.connect("mongodb+srv://lucas:f9NihHNYSHVBWP1I@motos.8exatax.mongodb.net/Motorcycles")
+    console.log("connected");
+  } catch(e) {
+    console.log(e);
+  }
 }
 
-const disconnect = async () => {
-  return await mongoose.disconnect()
-}
-
-const database = {
-  connect, 
-  disconnect
-}
-
-export default database
+export default connectMongoDB

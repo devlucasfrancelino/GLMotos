@@ -14,12 +14,11 @@ const MotorcycleSchema = new Schema<MotorcycleType>({
   modelCode: { type: String, required: true },
   makeCode: { type: String, required: true },
   fipeYear: { type: String, required: true },
-  photo1: { type: Schema.Types.ObjectId, ref: 'File' },
-  photo2: { type: Schema.Types.ObjectId, ref: 'File' },
-  photo3: { type: Schema.Types.ObjectId, ref: 'File' },
+  photo1: { type: Schema.Types.ObjectId, ref: 'File', required: false },
+  photo2: { type: Schema.Types.ObjectId, ref: 'File',  required: false },
+  photo3: { type: Schema.Types.ObjectId, ref: 'File',  required: false },
 });
 
-// Criando o modelo a partir do esquema
-export const Motorcycle: Model<MotorcycleType> = mongoose.model<MotorcycleType>('Motorcycle', MotorcycleSchema);
+const Motorcycle = mongoose.models.Motorcycles || mongoose.model("Motorcycles", MotorcycleSchema);
 
 export default Motorcycle;
