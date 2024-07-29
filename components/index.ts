@@ -9,6 +9,7 @@ import MotorcycleCard from "./MotorcycleCard";
 import MotorcycleDetails from "./MotorcycleDetails";
 import { formatName } from "@/utils";
 import { translationMap } from "@/utils";
+import MainLogin from "./MainLogin";
 
 export {
     Hero,
@@ -22,4 +23,5 @@ export {
     MotorcycleDetails,
     formatName,
     translationMap,
+    MainLogin
 }
