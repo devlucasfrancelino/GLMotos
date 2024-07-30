@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+const adminUser = process.env.ADMINUSER
+const adminPass = process.env.ADMINPASS
 
 const handler = NextAuth({
   providers: [
@@ -10,8 +12,8 @@ const handler = NextAuth({
         password: { }
       },
       async authorize(credentials, req) {
-        if (credentials?.username == "Daniel" && credentials.password == "365204") {
-          return { username : credentials.username, password : credentials.password } 
+        if (credentials && credentials.username === adminUser && credentials?.password === adminPass) {          
+          return { username : credentials?.username, password : credentials?.password } 
         } else {
           return null
         }

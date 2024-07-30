@@ -10,6 +10,7 @@ import MotorcycleDetails from "./MotorcycleDetails";
 import { formatName } from "@/utils";
 import { translationMap } from "@/utils";
 import MainLogin from "./MainLogin";
+import Dialog from "./Dialog";
 
 export {
     Hero,
@@ -23,5 +24,6 @@ export {
     MotorcycleDetails,
     formatName,
     translationMap,
-    MainLogin
+    MainLogin,
+    Dialog
 }

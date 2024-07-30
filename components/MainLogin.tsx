@@ -6,12 +6,13 @@ import CustomButton from './CustomButton'
 import { useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation';
-
+import Dialog from './Dialog'
 
 const MainLogin = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const router = useRouter()
+  const [isOpen, setIsOpen] = useState("");
 
   const handleLogin: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()  
@@ -73,6 +74,8 @@ const MainLogin = () => {
               handleClick={() => {}}
             />
           </form>
+          <Dialog 
+            isOpen={isOpen}/>
         </div>
       </div>
       <div className='w-3/5 h-full p-12 relative'>
